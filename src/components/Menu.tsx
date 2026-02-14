@@ -21,10 +21,14 @@ const menuItems = [
 
 export default function Menu() {
   const [isOpen, setIsOpen] = useState(false);
+  const [shouldRender, setShouldRender] = useState(false);
 
   useEffect(() => {
     // Listen for menu open event from header button
-    const handleMenuOpen = () => setIsOpen(true);
+    const handleMenuOpen = () => {
+      setShouldRender(true);
+      setTimeout(() => setIsOpen(true), 10);
+    };
     const menuButton = document.getElementById('menu-button');
     
     if (menuButton) {
@@ -48,14 +52,15 @@ export default function Menu() {
 
   const handleClose = () => {
     setIsOpen(false);
+    setTimeout(() => setShouldRender(false), 300); // Match transition duration
   };
 
-  if (!isOpen) return null;
+  if (!shouldRender) return null;
 
   return (
     <div
       id="fullscreen-menu"
-      className={`fixed inset-0 z-50 bg-cream flex items-center justify-center transition-opacity duration-300 ${
+      className={`fixed inset-0 z-[100] bg-cream flex items-center justify-center transition-opacity duration-300 ${
         isOpen ? 'opacity-100' : 'opacity-0'
       }`}
       onClick={handleClose}
@@ -78,12 +83,12 @@ export default function Menu() {
           <a
             key={item.href}
             href={item.href}
-            className="flex flex-col items-center text-center group"
+            className="flex flex-col items-center text-center group hover:opacity-70 transition-opacity cursor-pointer"
           >
-            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-sage mb-2 group-hover:opacity-70 transition-opacity">
+            <h2 className="font-serif text-xl text-sage mb-2">
               {item.title}
             </h2>
-            <p className="font-sans text-sm md:text-base text-sage/70 max-w-xs">
+            <p className="font-sans text-base text-sage/80 max-w-[20ch] leading-relaxed">
               {item.subtitle}
             </p>
           </a>

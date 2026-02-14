@@ -1,5 +1,4 @@
 ---
-import Menu from './Menu';
 import MenuButton from './MenuButton';
 ---
 
@@ -16,25 +15,7 @@ import MenuButton from './MenuButton';
     
     <MenuButton client:load />
   </div>
-  
-  <Menu client:load />
 </header>
 
 <!-- Spacer to prevent content from hiding under fixed header -->
 <div class="h-16"></div>
-
-<script>
-  const menuButton = document.getElementById('menu-button');
-  const menuElement = document.getElementById('fullscreen-menu');
-  
-  if (menuButton && menuElement) {
-    menuButton.addEventListener('click', () => {
-      menuElement.classList.remove('hidden');
-      menuElement.classList.add('flex');
-      // Trigger animation
-      setTimeout(() => {
-        menuElement.classList.add('opacity-100');
-      }, 10);
-    });
-  }
-</script>
