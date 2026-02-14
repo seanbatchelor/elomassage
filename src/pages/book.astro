@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+import Section from '../components/Section.astro';
+import BookAccordion from '../components/BookAccordion';
+---
+
+<BaseLayout 
+  title="Book an Appointment - Elo Massage Therapy"
+  description="Appointment information, pricing, and booking details for remedial massage therapy in Armidale."
+>
+  <Section width="normal" class="pt-8 md:pt-16">
+    <h1 class="font-serif text-3xl md:text-5xl mb-12 text-center md:text-left">Book an Appointment</h1>
+    
+    <BookAccordion client:load />
+    
+    <div class="mt-12 text-center">
+      <Button href="#">Book Appointment</Button>
+    </div>
+  </Section>
+</BaseLayout>

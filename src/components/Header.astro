@@ -1,0 +1,47 @@
+---
+import Menu from './Menu';
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-cream/95 backdrop-blur-sm">
+  <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="/" class="flex items-center">
+      <img 
+        src="/logo-placeholder.svg" 
+        alt="Elo" 
+        class="h-8 w-auto"
+        id="logo"
+      />
+    </a>
+    
+    <button 
+      id="menu-button"
+      class="flex flex-col gap-1.5 w-8 h-8 items-end justify-center hover:opacity-70 transition-opacity"
+      aria-label="Open menu"
+    >
+      <span class="block w-6 h-0.5 bg-sage transition-all"></span>
+      <span class="block w-8 h-0.5 bg-sage transition-all"></span>
+      <span class="block w-4 h-0.5 bg-sage transition-all"></span>
+    </button>
+  </div>
+  
+  <Menu client:load />
+</header>
+
+<!-- Spacer to prevent content from hiding under fixed header -->
+<div class="h-16"></div>
+
+<script>
+  const menuButton = document.getElementById('menu-button');
+  const menuElement = document.getElementById('fullscreen-menu');
+  
+  if (menuButton && menuElement) {
+    menuButton.addEventListener('click', () => {
+      menuElement.classList.remove('hidden');
+      menuElement.classList.add('flex');
+      // Trigger animation
+      setTimeout(() => {
+        menuElement.classList.add('opacity-100');
+      }, 10);
+    });
+  }
+</script>
