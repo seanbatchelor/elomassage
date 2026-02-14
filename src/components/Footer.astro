@@ -1,48 +1,60 @@
 ---
+import Button from './Button.astro';
 // Footer component with three columns
 ---
 
-<footer class="bg-cream border-t border-sage/10 mt-24">
-  <div class="container mx-auto px-6 py-12 md:py-16">
+<footer>
+  <div class="container mx-auto px-4 py-12 md:py-16">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
       
       <!-- Column 1: Gift Cards -->
       <div>
         <h3 class="font-serif text-xl mb-4 text-sage">Gift Cards</h3>
         <p class="text-sage/80 leading-relaxed">
-          Gift vouchers available for all treatment durations.
+          Digital gift cards are available and may be used for any treatment, a thoughtful way to support a friend or loved one's wellbeing.
         </p>
-        <a href="#" class="text-sage hover:opacity-70 transition-opacity inline-block mt-2">
-          Enquire about gift cards →
-        </a>
+        <Button href="#" size="medium" class="text-sage hover:opacity-70 transition-opacity inline-block mt-2">
+          Purchase a gift card
+        </Button>
       </div>
 
       <!-- Column 2: Clinic Details -->
       <div>
         <h3 class="font-serif text-xl mb-4 text-sage">Clinic Details</h3>
-        <div class="text-sage/80 space-y-2">
-          <p>En Pointe Health</p>
-          <p>Armidale, NSW</p>
-          <p class="pt-2">Tuesday – Thursday</p>
-          <p>By appointment</p>
+        <div class="text-sage/80 space-y-3">
+          <p>Appointments are available Tuesday, Wednesday and Thursday.</p>
+
+          <p>
+            Located at <br />
+            <a
+              href="https://www.google.com/maps/place/En+Pointe+Health/@-30.5113309,151.6515246,17z/data=!4m8!3m7!1s0x6b9f9e36a97eaaab:0x860ca4d37f07913f!8m2!3d-30.5113309!4d151.6540995!9m1!1b1!16s%2Fg%2F11ggs461jf?entry=ttu&g_ep=EgoyMDI2MDIxMS4wIKXMDSoASAFQAw%3D%3D"
+              target="_blank"
+              class="underline decoration-1 underline-offset-4"
+              >
+              En Pointe Health
+              <br />
+              124A O’Dell St <br />
+              Armidale NSW 2350
+            </a>
+          </p>
+
+          <p>Health fund rebates are available with most major private health funds.</p>
+          <Button href="/about" size="medium" class="text-sage hover:opacity-70 transition-opacity inline-block mt-2">
+            Contact
+          </Button>
         </div>
       </div>
 
       <!-- Column 3: Acknowledgement of Country -->
-      <div>
-        <h3 class="font-serif text-xl mb-4 text-sage">Acknowledgement</h3>
+      <div class="space-y-3">
         <p class="text-sage/80 leading-relaxed">
-          I acknowledge the Anaiwan people as the Traditional Custodians of the land on which I work, 
-          and pay my respects to Elders past, present and emerging.
+          I acknowledge the Anaiwan People, the traditional custodians of the land where I work, and pay my respects to Elders past and present.
+        </p>
+        <p class="text-sage/80">
+          © {new Date().getFullYear()} Eloise Tunchon. All rights reserved.
         </p>
       </div>
     </div>
 
-    <!-- Copyright -->
-    <div class="mt-12 pt-8 border-t border-sage/10">
-      <p class="text-sage/60">
-        © {new Date().getFullYear()} Eloise Tunchon. All rights reserved.
-      </p>
-    </div>
   </div>
 </footer>
